@@ -1,0 +1,12 @@
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\bin\Debug\net9.0\OOPsReview.deps.json
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\bin\Debug\net9.0\OOPsReview.dll
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\bin\Debug\net9.0\OOPsReview.pdb
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\OOPsReview.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\OOPsReview.AssemblyInfoInputs.cache
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\OOPsReview.AssemblyInfo.cs
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\OOPsReview.csproj.CoreCompileInputs.cache
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\OOPsReview.sourcelink.json
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\OOPsReview.dll
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\refint\OOPsReview.dll
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\OOPsReview.pdb
+C:\Users\mcimo\Work\NAIT\1242\1517\A04\Workbook\OOPsReview\OOPsReview\obj\Debug\net9.0\ref\OOPsReview.dll

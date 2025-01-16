@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Workbook\\OOPsReview\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{61911222-243C-467D-BA5E-3592A54B2510}|..\\..\\..\\..\\..\\..\\..\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\UnitTestingForOOPs\\UnitTestingForOOPs.csproj|c:\\users\\mcimo\\onedrive - nait\\course files\\1242\\cpsc1517\\source\\oops review\\day 3\\unittestingforoops\\employment_should.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mcimo\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\Utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Employment_Should.cs",
+              "DocumentMoniker": "C:\\Users\\mcimo\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\UnitTestingForOOPs\\Employment_Should.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\UnitTestingForOOPs\\Employment_Should.cs",
+              "ToolTip": "C:\\Users\\mcimo\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\UnitTestingForOOPs\\Employment_Should.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\UnitTestingForOOPs\\Employment_Should.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T18:13:18.174Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "bd60c4a3-5c1f-4c7b-bc74-9857969d681a",
+        "Display": 0,
+        "X": 201,
+        "Y": 461,
+        "Width": 1578,
+        "Height": 690,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Utilities.cs",
+              "DocumentMoniker": "C:\\Users\\mcimo\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\Utilities.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\Utilities.cs",
+              "ToolTip": "C:\\Users\\mcimo\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\Utilities.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\OneDrive - NAIT\\Course Files\\1242\\CPSC1517\\Source\\OOPS Review\\Day 3\\Utilities.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T21:52:48.095Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
