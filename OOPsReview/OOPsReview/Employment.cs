@@ -72,8 +72,8 @@
         /// </summary>
         public Employment()
         {
-            Title = "Unknown";
-            Level = SupervisoryLevel.Entry;
+            Title = "unknown";
+            Level = SupervisoryLevel.TeamMember;
             StartDate = DateTime.Today;
         }
 
