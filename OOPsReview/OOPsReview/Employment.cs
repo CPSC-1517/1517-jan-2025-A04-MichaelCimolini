@@ -119,7 +119,7 @@
         /// <returns>The CSV representation of this instance.</returns>
         public override string ToString()
         {
-            return $"{Title},{Level},{StartDate.ToString("MMM,dd,yyyy")},{Years}";
+            return $"{Title},{Level},{StartDate.ToString("MMM. dd yyyy")},{Years}";
         }
 
         /// <summary>

@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\MCIMOLINI\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\",
+  "WorkspaceRootPath": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{28C9ECAC-0017-491C-933A-9595AA1B87A6}|UnitTestingForOOPs\\UnitTestingForOOPs.csproj|c:\\users\\mcimolini\\documents\\work\\1242\\cpsc1517\\a04\\instructor workbook\\oopsreview\\unittestingforoops\\employment_should.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{28C9ECAC-0017-491C-933A-9595AA1B87A6}|UnitTestingForOOPs\\UnitTestingForOOPs.csproj|c:\\users\\mcimo\\work\\nait\\1242\\1517\\a04\\instructor workbook\\oopsreview\\unittestingforoops\\employment_should.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{28C9ECAC-0017-491C-933A-9595AA1B87A6}|UnitTestingForOOPs\\UnitTestingForOOPs.csproj|solutionrelative:unittestingforoops\\employment_should.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B062CF3C-F23A-4B1A-BBDD-272A8A11276E}|OOPsReview\\OOPsReview.csproj|c:\\users\\mcimolini\\documents\\work\\1242\\cpsc1517\\a04\\instructor workbook\\oopsreview\\oopsreview\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B062CF3C-F23A-4B1A-BBDD-272A8A11276E}|OOPsReview\\OOPsReview.csproj|c:\\users\\mcimo\\work\\nait\\1242\\1517\\a04\\instructor workbook\\oopsreview\\oopsreview\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B062CF3C-F23A-4B1A-BBDD-272A8A11276E}|OOPsReview\\OOPsReview.csproj|solutionrelative:oopsreview\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Employment_Should.cs",
-              "DocumentMoniker": "C:\\Users\\MCIMOLINI\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\UnitTestingForOOPs\\Employment_Should.cs",
+              "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\UnitTestingForOOPs\\Employment_Should.cs",
               "RelativeDocumentMoniker": "UnitTestingForOOPs\\Employment_Should.cs",
-              "ToolTip": "C:\\Users\\MCIMOLINI\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\UnitTestingForOOPs\\Employment_Should.cs",
-              "RelativeToolTip": "UnitTestingForOOPs\\Employment_Should.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwA0AAAADAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\UnitTestingForOOPs\\Employment_Should.cs*",
+              "RelativeToolTip": "UnitTestingForOOPs\\Employment_Should.cs*",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T20:23:33.747Z",
               "EditorCaption": ""
@@ -37,11 +37,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Employment.cs",
-              "DocumentMoniker": "C:\\Users\\MCIMOLINI\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Employment.cs",
+              "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Employment.cs",
               "RelativeDocumentMoniker": "OOPsReview\\Employment.cs",
-              "ToolTip": "C:\\Users\\MCIMOLINI\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Employment.cs",
+              "ToolTip": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Employment.cs",
               "RelativeToolTip": "OOPsReview\\Employment.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAQwEsAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T19:55:27.389Z",
               "EditorCaption": ""
