@@ -82,20 +82,18 @@
             Title = title;
             Level = level;
 
-            if (startDate >= DateTime.Today.AddDays(1))
+            if (CheckDate(startDate))
             {
-                throw new ArgumentException($"The start date {startDate} is in the future.");
+                StartDate = startDate;
             }
-            StartDate = startDate;
 
-            if (years > 0.0)
+            if (years != 0.0 || startDate == DateTime.Today)
             {
                 Years = years;
             }
             else
             {
-                TimeSpan span = DateTime.Now - StartDate;
-                Years = Math.Round((span.Days / 365.25), 1); //365.25 is the number of days in a year accounting for leap years.
+                CalculateAndSetYears(startDate);
             }
         }
         #endregion
@@ -129,13 +127,26 @@
         /// <exception cref="ArgumentException">Thrown if startDate is in the future.</exception>
         public void CorrectStartDate(DateTime startDate)
         {
-            if (startDate >= DateTime.Today.AddDays(1))
+            if (CheckDate(startDate))
             {
-                throw new ArgumentException($"The start date {startDate} is in the future.");
+                StartDate = startDate;
+            }
+            
+            CalculateAndSetYears(startDate);
+        }
+
+        private bool CheckDate(DateTime value)
+        {
+            if (value >= DateTime.Today.AddDays(1))
+            {
+                throw new ArgumentException($"The start date {value} is in the future.");
             }
 
-            StartDate = startDate;
-            
+            return true;
+        }
+
+        private void CalculateAndSetYears(DateTime startDate)
+        {
             TimeSpan span = DateTime.Now - StartDate;
             Years = Math.Round((span.Days / 365.25), 1); //365.25 is the number of days in a year accounting for leap years.
         }
