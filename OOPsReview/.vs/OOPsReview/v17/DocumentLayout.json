@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B062CF3C-F23A-4B1A-BBDD-272A8A11276E}|OOPsReview\\OOPsReview.csproj|c:\\users\\mcimo\\work\\nait\\1242\\1517\\a04\\instructor workbook\\oopsreview\\oopsreview\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B062CF3C-F23A-4B1A-BBDD-272A8A11276E}|OOPsReview\\OOPsReview.csproj|solutionrelative:oopsreview\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}|TDDUnitTesting\\TDDUnitTesting.csproj|c:\\users\\mcimo\\work\\nait\\1242\\1517\\a04\\instructor workbook\\oopsreview\\tddunittesting\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}|TDDUnitTesting\\TDDUnitTesting.csproj|solutionrelative:tddunittesting\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28C9ECAC-0017-491C-933A-9595AA1B87A6}|UnitTestingForOOPs\\UnitTestingForOOPs.csproj|c:\\users\\mcimo\\work\\nait\\1242\\1517\\a04\\instructor workbook\\oopsreview\\unittestingforoops\\employment_should.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{28C9ECAC-0017-491C-933A-9595AA1B87A6}|UnitTestingForOOPs\\UnitTestingForOOPs.csproj|solutionrelative:unittestingforoops\\employment_should.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}|TDDUnitTesting\\TDDUnitTesting.csproj|c:\\users\\mcimo\\work\\nait\\1242\\1517\\a04\\instructor workbook\\oopsreview\\tddunittesting\\tddunittesting.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}|TDDUnitTesting\\TDDUnitTesting.csproj|solutionrelative:tddunittesting\\tddunittesting.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Employment_Should.cs",
-              "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\UnitTestingForOOPs\\Employment_Should.cs",
-              "RelativeDocumentMoniker": "UnitTestingForOOPs\\Employment_Should.cs",
-              "ToolTip": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\UnitTestingForOOPs\\Employment_Should.cs",
-              "RelativeToolTip": "UnitTestingForOOPs\\Employment_Should.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAYwBYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T20:23:33.747Z",
+              "Title": "TDDUnitTesting",
+              "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\TDDUnitTesting\\TDDUnitTesting.csproj",
+              "RelativeDocumentMoniker": "TDDUnitTesting\\TDDUnitTesting.csproj",
+              "ToolTip": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\TDDUnitTesting\\TDDUnitTesting.csproj",
+              "RelativeToolTip": "TDDUnitTesting\\TDDUnitTesting.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-22T22:42:15.556Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Employment.cs",
-              "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Employment.cs",
-              "RelativeDocumentMoniker": "OOPsReview\\Employment.cs",
-              "ToolTip": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Employment.cs",
-              "RelativeToolTip": "OOPsReview\\Employment.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAgwHkAAABCAAAAAAAAAA==",
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\TDDUnitTesting\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "TDDUnitTesting\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\TDDUnitTesting\\UnitTest1.cs",
+              "RelativeToolTip": "TDDUnitTesting\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T19:55:27.389Z",
+              "WhenOpened": "2025-01-22T22:41:57.363Z",
               "EditorCaption": ""
             }
           ]
