@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "F/f2EPb0ucM=",
+  "dgSpecHash": "A9Fwi5jkCNg=",
   "success": true,
   "projectFilePath": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\OOPsReview.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mcimo\\.nuget\\packages\\fluentassertions\\8.0.1\\fluentassertions.8.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
