@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B062CF3C-F23A-4B1A-BBDD-272A8A11276E}|OOPsReview\\OOPsReview.csproj|c:\\users\\mcimo\\work\\nait\\1242\\1517\\a04\\instructor workbook\\oopsreview\\oopsreview\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B062CF3C-F23A-4B1A-BBDD-272A8A11276E}|OOPsReview\\OOPsReview.csproj|solutionrelative:oopsreview\\employment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}|TDDUnitTesting\\TDDUnitTesting.csproj|c:\\users\\mcimo\\work\\nait\\1242\\1517\\a04\\instructor workbook\\oopsreview\\tddunittesting\\person_should.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}|TDDUnitTesting\\TDDUnitTesting.csproj|solutionrelative:tddunittesting\\person_should.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,11 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Employment.cs",
+              "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Employment.cs",
+              "RelativeDocumentMoniker": "OOPsReview\\Employment.cs",
+              "ToolTip": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Employment.cs",
+              "RelativeToolTip": "OOPsReview\\Employment.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAiwFsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T23:18:26.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Person.cs",
               "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\Person.cs",
               "RelativeDocumentMoniker": "OOPsReview\\Person.cs",
@@ -35,13 +52,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Person_Should.cs",
               "DocumentMoniker": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\TDDUnitTesting\\Person_Should.cs",
               "RelativeDocumentMoniker": "TDDUnitTesting\\Person_Should.cs",
               "ToolTip": "C:\\Users\\mcimo\\Work\\NAIT\\1242\\1517\\A04\\Instructor Workbook\\OOPsReview\\TDDUnitTesting\\Person_Should.cs",
               "RelativeToolTip": "TDDUnitTesting\\Person_Should.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wA4AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwA4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T22:41:57.363Z",
               "EditorCaption": ""

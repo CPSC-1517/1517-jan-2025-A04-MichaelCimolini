@@ -24,6 +24,21 @@ namespace TDDUnitTesting
             sut.Address.Should().BeNull();
             sut.EmploymentPositions.Count.Should().Be(expectedEmploymentPositionsCount);
         }
+
+        [Fact]
+        public void CreateAnInstanceWithGreedyConstructor()
+        {
+            string expectedFirstName = "Josh";
+            string expectedLastName = "Sellars";
+            int expectedEmploymentPositionsCount = 0;
+
+            Person sut = new Person("Josh", "Sellars", null, null);
+
+            sut.FirstName.Should().Be(expectedFirstName);
+            sut.LastName.Should().Be(expectedLastName);
+            sut.Address.Should().BeNull();
+            sut.EmploymentPositions.Count.Should().Be(expectedEmploymentPositionsCount);
+        }
         #endregion
 
         #region Theories
