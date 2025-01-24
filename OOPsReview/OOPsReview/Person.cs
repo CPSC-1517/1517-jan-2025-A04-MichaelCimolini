@@ -17,7 +17,14 @@ namespace OOPsReview
         public String FirstName
         {
             get { return _FirstName; }
-            set { _FirstName = value; }
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value)) 
+                {
+                    throw new ArgumentException($"{value} is invalid. First Name is Required; can not be null, empty, or whitespace.");
+                }
+                _FirstName = value;
+            }
         }
         public String LastName
         {
@@ -42,7 +49,16 @@ namespace OOPsReview
         {
             FirstName = firstName;
             LastName = lastName;
-            EmploymentPositions = employments;
+
+            if (employments != null)
+            {
+                EmploymentPositions = employments;
+            }
+            else
+            {
+                EmploymentPositions = new List<Employment>();
+            }
+
             Address = address;
         }
         #endregion

@@ -42,6 +42,21 @@ namespace TDDUnitTesting
         #endregion
 
         #region Theories
+        [Theory]
+        [InlineData("   ")]
+        [InlineData(null)]
+        [InlineData("")]
+        public void ThrowExceptionCreatingAnInstanceWithBadFirstName(string ?testValue)
+        {
+            //No setup needed.
+
+            //Execution
+            Action action = () => new Person(testValue, "Last", null, null);
+
+            //Assertion
+            action.Should().Throw<ArgumentException>();
+        }
+
         #endregion
         #endregion
 
