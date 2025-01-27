@@ -9,12 +9,12 @@ namespace OOPsReview
     public class Person
     {
         #region Attributes
-        private String _FirstName;
-        private String _LastName;
+        private string _FirstName;
+        private string _LastName;
         #endregion
 
         #region Properties
-        public String FirstName
+        public string FirstName
         {
             get { return _FirstName; }
             set
@@ -26,10 +26,17 @@ namespace OOPsReview
                 _FirstName = value;
             }
         }
-        public String LastName
+        public string LastName
         {
             get { return _LastName; }
-            set { _LastName = value; }
+            set
+            {
+                if (String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException($"{value} is invalid. Last Name is Required; can not be null, empty, or whitespace.");
+                }
+                _LastName = value;
+            }
         }
         public ResidentAddress Address { get; set; }
         public List<Employment> EmploymentPositions { get; set; }

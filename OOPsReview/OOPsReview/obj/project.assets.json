@@ -52,23 +52,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MCIMOLINI\\.nuget\\packages\\": {},
+    "C:\\Users\\mcimo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MCIMOLINI\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\OOPsReview.csproj",
+      "projectUniqueName": "C:\\Users\\mcimo\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\OOPsReview.csproj",
       "projectName": "OOPsReview",
-      "projectPath": "C:\\Users\\MCIMOLINI\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\OOPsReview.csproj",
-      "packagesPath": "C:\\Users\\MCIMOLINI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MCIMOLINI\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\obj\\",
+      "projectPath": "C:\\Users\\mcimo\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\OOPsReview.csproj",
+      "packagesPath": "C:\\Users\\mcimo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mcimo\\Documents\\Work\\1242\\CPSC1517\\A04\\Instructor Workbook\\OOPsReview\\OOPsReview\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\MCIMOLINI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mcimo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -122,7 +122,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
