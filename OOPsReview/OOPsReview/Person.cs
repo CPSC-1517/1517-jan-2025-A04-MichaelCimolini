@@ -23,7 +23,7 @@ namespace OOPsReview
                 {
                     throw new ArgumentException($"{value} is invalid. First Name is Required; can not be null, empty, or whitespace.");
                 }
-                _FirstName = value;
+                _FirstName = value.Trim();
             }
         }
         public string LastName
@@ -35,11 +35,12 @@ namespace OOPsReview
                 {
                     throw new ArgumentException($"{value} is invalid. Last Name is Required; can not be null, empty, or whitespace.");
                 }
-                _LastName = value;
+                _LastName = value.Trim();
             }
         }
         public ResidentAddress ?Address { get; set; }
         public List<Employment> EmploymentPositions { get; set; }
+        public string FullName { get { return $"{LastName}, {FirstName}"; } }
 
         #endregion
 
@@ -68,9 +69,25 @@ namespace OOPsReview
 
             Address = address;
         }
+
         #endregion
 
         #region Methods
+
+        public void ChangeFullName(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+
+        public void AddEmployment(Employment position)
+        {
+            if(position == null)
+            {
+                throw new ArgumentNullException("Employment position can not be empty it is required.");
+            }
+            EmploymentPositions.Add(position);
+        }
 
         #endregion
     }

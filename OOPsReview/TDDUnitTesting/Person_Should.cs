@@ -94,6 +94,72 @@ namespace TDDUnitTesting
 
         #region Methods
         #region Facts
+        
+        [Fact]
+        public void ChangeFullName()
+        {
+            string expectedFirstName = "Remi";
+            string expectedLastName = "The Rat";
+            string expectedFullName = "The Rat, Remi";
+
+            Person sut = new Person("Mickey", "Mouse", null, null);
+
+            sut.ChangeFullName("Remi", "The Rat");
+
+            sut.FullName.Should().Be(expectedFullName);
+            sut.FirstName.Should().Be(expectedFirstName);
+            sut.LastName.Should().Be(expectedLastName);
+        }
+
+        [Fact]
+        public void AddNewEmploymentItemToCollection()
+        {
+            //Setup
+            ResidentAddress address = new ResidentAddress(123, "Maple St.",
+                                "Edmonton", "AB", "T6Y7U8");
+            Employment one = new Employment("PG I", SupervisoryLevel.TeamMember,
+                            DateTime.Parse("2013/10/04"), 6.5);
+
+            TimeSpan days = DateTime.Today - DateTime.Parse("2020/04/04");
+            Employment two = new Employment("PG II", SupervisoryLevel.TeamMember,
+                            DateTime.Parse("2020/04/04"), Math.Round(days.Days / 365.2, 1));
+
+            List<Employment> employments = new();
+
+            employments.Add(one);
+            employments.Add(two);
+
+            Person sut = new Person("Lowan", "Behold", address, employments);
+
+            //build expected new employment
+            Employment three = new Employment("SUP I", SupervisoryLevel.Supervisor,
+                          DateTime.Today, 0);
+
+            List<Employment> expectedEmployments = new List<Employment>();
+            expectedEmployments.Add(one);
+            expectedEmployments.Add(two);
+            expectedEmployments.Add(three);
+
+            int expectedEmploymentPositionsCount = 3;
+
+            //execution
+            sut.AddEmployment(three);
+
+            //Assertion
+            sut.EmploymentPositions.Count.Should().Be(expectedEmploymentPositionsCount);
+
+            sut.EmploymentPositions.Should().ContainInConsecutiveOrder(expectedEmployments);
+        }
+
+        [Fact]
+        public void ThrowExceptionWhenAddingEmploymentWithNoParameter()
+        {
+            Person sut = new Person("Jean-Luc", "Picard", null, null);
+
+            Action action = () => sut.AddEmployment(null);
+
+            action.Should().Throw<ArgumentNullException>().WithMessage("*is required*");
+        }
         #endregion
         #region Theories
         #endregion
@@ -149,6 +215,15 @@ namespace TDDUnitTesting
         }
         #endregion
 
+        [Fact]
+        public void ReturnFullNameViaProperty()
+        {
+            string expectedFullName = "Last, First";
+
+            Person sut = new Person("First", "Last", null, null);
+
+            sut.FullName.Should().Be(expectedFullName);
+        }
         #region Theories
 
         [Theory]
@@ -176,6 +251,8 @@ namespace TDDUnitTesting
 
             action.Should().Throw<ArgumentException>();
         }
+
+
         #endregion
         #endregion
     }
