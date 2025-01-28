@@ -161,7 +161,7 @@ namespace TDDUnitTesting
 
             Action action = () => sut.FirstName = testValue;
 
-            action.Should().Throw<ArgumentNullException>();
+            action.Should().Throw<ArgumentException>();
         }
 
         [Theory]
@@ -174,7 +174,7 @@ namespace TDDUnitTesting
 
             Action action = () => sut.LastName = testValue;
 
-            action.Should().Throw<ArgumentNullException>();
+            action.Should().Throw<ArgumentException>();
         }
         #endregion
         #endregion

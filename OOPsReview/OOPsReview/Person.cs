@@ -38,7 +38,7 @@ namespace OOPsReview
                 _LastName = value;
             }
         }
-        public ResidentAddress Address { get; set; }
+        public ResidentAddress ?Address { get; set; }
         public List<Employment> EmploymentPositions { get; set; }
 
         #endregion
