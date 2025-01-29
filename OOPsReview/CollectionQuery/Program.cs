@@ -84,6 +84,32 @@ else
 
 #region LINQ
 
+Console.WriteLine("\n--LINQ Section--");
+
+List<Employment>? foundCollection = null;
+
+//LINQ Method Syntax
+foundCollection = Employments.Where(e => e.Title.Contains("PG")).ToList();
+
+foreach (var employment in foundCollection)
+{
+    Console.WriteLine($"An employment of PG was found: {employment}");
+}
+
+foundCollection = null;
+
+//LINQ Query Syntax
+foundCollection = 
+    (
+        from employment in Employments
+        where employment.Title.Contains("PG")
+        select employment
+    ).ToList();
+
+foreach (var employment in foundCollection)
+{
+    Console.WriteLine($"An employment of PG was found: {employment}");
+}
 #endregion
 
 #region Helper Functions
