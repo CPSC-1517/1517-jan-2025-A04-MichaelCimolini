@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDDUnitTesting", "TDDUnitTesting\TDDUnitTesting.csproj", "{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionQuery", "CollectionQuery\CollectionQuery.csproj", "{FA9FB456-9D5C-4F9A-BA51-BB38281B1DCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9104D6C3-ECD0-4D9C-86A0-ADD661C3F2C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA9FB456-9D5C-4F9A-BA51-BB38281B1DCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9FB456-9D5C-4F9A-BA51-BB38281B1DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9FB456-9D5C-4F9A-BA51-BB38281B1DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9FB456-9D5C-4F9A-BA51-BB38281B1DCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
