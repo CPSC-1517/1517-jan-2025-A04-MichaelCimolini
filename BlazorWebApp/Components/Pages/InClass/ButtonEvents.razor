@@ -1,0 +1,49 @@
+﻿@page "/button-events"
+@rendermode InteractiveServer
+
+<PageTitle>Button Events</PageTitle>
+
+<h1>Basic Button Events</h1>
+<p>Learning about buttons and events!</p>
+
+
+<!--This is a style tag. It allows for in code styling, but easy refactoring.-->
+<style>
+	blockquote{
+	background-color: aqua;
+	}
+</style>
+
+<blockquote>
+	This page will demonstrate the basics of button events. It will use &lt;input&gt; controls to ask for some user input. It will use a &lt;button&gt; control to process the input. It will demonstrate basice use of C# code to do the processing.
+</blockquote>
+
+<p>@WelcomeMsg</p>
+
+<style>
+	button,
+	label,
+	input{
+		display: block;
+		margin-bottom: 15px;
+	}
+</style>
+<button type="submit" @onclick="Reset">Reset</button>
+
+<label for="inputcontrol">Enter an H for heads or T for Tails:</label>
+<input type="text" id="inputcontrol" placeholder="eg: H" @bind="InputValue"/>
+<button type="submit" @onclick="PlayGame">Play</button>
+
+@code {
+	private string WelcomeMsg = "Let us get started!";
+
+	private string InputValue;
+
+	private void Reset(){
+		WelcomeMsg = "Reset by Button.";
+	}
+
+	private void PlayGame(){
+
+	}
+}
