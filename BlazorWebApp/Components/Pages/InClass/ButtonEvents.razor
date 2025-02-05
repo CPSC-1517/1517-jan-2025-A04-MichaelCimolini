@@ -25,9 +25,59 @@
 
 	private void Reset(){
 		WelcomeMsg = "Reset by Button.";
+		InputValue = "";
 	}
 
-	private void PlayGame(){
+	/// <summary>
+	/// Plays a guessing game of heads or tails with a coin.
+	/// </summary>
+	private void PlayGame()
+	{
+		Random rnd = new Random();
 
+		int flip = rnd.Next(0, 2);
+
+		WelcomeMsg = "";
+
+		string guess = InputValue.ToUpper().Trim();
+
+		switch (flip)
+		{
+			case 0: //heads
+				{
+					if(guess == "H")
+					{
+						WelcomeMsg = "You guessed correctly, it's Heads!";
+					}
+					else if(guess == "T")
+					{
+						WelcomeMsg = "You guessed incorrectly!";
+					}
+					else
+					{
+						WelcomeMsg = $"{guess} was invalid, please enter H or T.";
+					}
+			}
+				break;
+
+			case 1:
+				{
+					if (guess == "T")
+					{
+						WelcomeMsg = "You guessed correctly, it's Tails!";
+					}
+					else if (guess == "H")
+					{
+						WelcomeMsg = "You guessed incorrectly!";
+					}
+					else
+					{
+						WelcomeMsg = $"{guess} was invalid, please enter H or T.";
+					}
+				}
+				break;
+			
+			default: break;
+		}
 	}
 }
