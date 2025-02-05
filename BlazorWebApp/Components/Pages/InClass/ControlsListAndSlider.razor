@@ -1,5 +1,5 @@
 ﻿<!-- required for SelectionList class-->
-@using BlazorApp.Data
+@using Data
 <h3>Controls Lists and Sliders</h3>
 <label>
     Select favourite Ride<br/>
@@ -53,9 +53,11 @@
     public List<SelectionList> Rides { get; set; } = new();
     public List<string> VacationSpotList { get; set; } = new();
 
-    // [Parameter] public string DataToSend{ get; set; }
-    // //this is a bound event handler delegate
-    // [Parameter] public EventCallback<string> OnDataSent { get; set; }
+    //Paramerers let us send data from child components to their parent components.
+
+    [Parameter] public string DataToSend{ get; set; }
+    //this is a bound event handler delegate
+    [Parameter] public EventCallback<string> OnDataSent { get; set; }
 
     protected override void OnInitialized()
     {
@@ -82,8 +84,8 @@
         //feedback is filled then feedback fills DataToSend
         feedback = $"Ride {myRide} -- Vacation {vacationSpot} --  Range {rangeValue}";
         //evokes the EventCallback
-        // DataToSend = feedback;
-        // OnDataSent.InvokeAsync(DataToSend);
+        DataToSend = feedback;
+        OnDataSent.InvokeAsync(DataToSend);
     }
 
 

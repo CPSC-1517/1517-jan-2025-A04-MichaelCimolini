@@ -1,6 +1,8 @@
 ﻿@page "/controls"
 @rendermode InteractiveServer
+
 <PageTitle>Various Controls</PageTitle>
+
 <h3>Various Controls</h3>
 <h4>using multiple components</h4>
 
@@ -10,12 +12,12 @@
 </HeadContent>
 
 
-@* <section class="row">
+<section class="row">
     @if(!string.IsNullOrWhiteSpace(receivedData))
     {
         <p>This is the data sent from the child component: &gt;@receivedData&lt;</p>
     }
-</section> *@
+</section>
 
 <!-- this will be a 3 column one row combined component-->
 <section class="row">
@@ -39,8 +41,9 @@
     </div>
     <div class="col-md-4">
         <h5>Lists/Slider</h5>
-        @* <ControlsListAndSlider OnDataSent="HandleDataSent"></ControlsListAndSlider> *@
-        <ControlsListAndSlider></ControlsListAndSlider>
+        <ControlsListAndSlider OnDataSent="HandleDataSent"></ControlsListAndSlider>
+        
+        @*<ControlsListAndSlider></ControlsListAndSlider>*@
 
     </div>
 </section>
@@ -48,8 +51,8 @@
 @code {
     private string receivedData;
 
-    // private void HandleDataSent(string data)
-    // {
-    //     receivedData = data;
-    // }
+    private void HandleDataSent(string data)
+    {
+        receivedData = data;
+    }
 }
