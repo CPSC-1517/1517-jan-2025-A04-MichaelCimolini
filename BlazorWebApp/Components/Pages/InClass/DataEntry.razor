@@ -1,6 +1,10 @@
 ﻿@page "/dataentry"
 <PageTitle>Data Entry</PageTitle>
 
+@rendermode InteractiveServer
+
+@using OOPsReview
+
 <section>
 	<h2>Data Entry</h2>
 	<p>Employment Data Collection</p>
@@ -28,7 +32,7 @@
 	@if(!String.IsNullOrEmpty(FeedbackMsg)){
 		<div class="alert alert-success">
 			<p>
-			@FeedbackMsg
+				@FeedbackMsg
 			</p>
 		</div>
 	}
@@ -46,13 +50,117 @@
 
 </section>
 
+<fieldset>
+	<legend>Employment Data</legend>
+
+	<div class="row">
+		<div class="col-md-2">
+			<label for="title">Position Title</label>
+		</div>
+		<div class="col-md-2">
+			<input type="text" id="title" placeholder="Enter Position" @bind=EmploymentTitle/>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<label for="years">Years in Position</label>
+		</div>
+		@*
+			Step tells our number what to increment by.
+		*@
+		<div class="col-md-2">
+			<input type="number" id="years" @bind=EmploymentYears step="0.1"/>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<label for="date">Position Start Date</label>
+		</div>
+		<div class="col-md-2">
+			<input type="date" id="date" placeholder="@DateTime.Today" @bind=EmploymentStart />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<label for="level">Supervisory Level</label>
+		</div>
+		<div class="col-md-2">
+			<select id="level" @bind=EmploymentLevel>
+				@*
+				I could do this manually:
+				<option>Entry</option>
+
+				or...
+			*@
+				<!--
+				Enum.GetValues turns our enum into a list (array)
+				typeof() gets the "Definition" of our enum
+				-->
+				@foreach(var level in Enum.GetValues(typeof(SupervisoryLevel)))
+				{
+					<option value="@level">@level</option>
+				}
+			</select>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<button @onclick="Submit">Submit</button>
+			<button @onclick="Clear">Clear</button>
+		</div>
+	</div>
+</fieldset>
+
 @code {
-	string FeedbackMsg = String.Empty; //same as "";
-	Dictionary<string, string> ErrorMessages = new(); //Shorthand for new Dictionary<string, string>();
+	private string FeedbackMsg = String.Empty; //same as "";
+	private Dictionary<string, string> ErrorMessages = new(); //Shorthand for new Dictionary<string, string>();
+
+	private string EmploymentTitle = String.Empty;
+	private double EmploymentYears = 0.0;
+	private DateTime EmploymentStart = DateTime.Today;
+	private SupervisoryLevel EmploymentLevel = SupervisoryLevel.Entry;
 
 	protected override void OnInitialized()
 	{
 
 		base.OnInitialized();
+	}
+
+	private void Submit()
+	{
+		FeedbackMsg = String.Empty;
+		ErrorMessages.Clear();
+
+		if(String.IsNullOrEmpty(EmploymentTitle))
+		{
+			ErrorMessages.Add("Title", "Title can not be empty.");
+		}
+
+		if(EmploymentYears < 0){
+			ErrorMessages.Add("Year", "Years must be positive or 0.");
+		}
+
+		if(EmploymentStart >= DateTime.Today.AddDays(1)){
+			ErrorMessages.Add("Start", "Start date can not be in the future.");
+		}
+
+		if(ErrorMessages.Count == 0){
+			FeedbackMsg = $"Success: {EmploymentTitle}, {EmploymentYears}, {EmploymentStart}, {EmploymentLevel}";
+		}
+	}
+
+	private void Clear()
+	{
+		FeedbackMsg = String.Empty;
+		ErrorMessages.Clear();
+
+		EmploymentTitle = String.Empty;
+		EmploymentYears = 0.0;
+		EmploymentStart = DateTime.Today;
+		EmploymentLevel = SupervisoryLevel.Entry;
 	}
 }
