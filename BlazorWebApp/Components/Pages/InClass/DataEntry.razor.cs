@@ -1,4 +1,6 @@
-﻿using OOPsReview;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
+using OOPsReview;
 
 namespace BlazorWebApp.Components.Pages.InClass
 {
@@ -11,6 +13,18 @@ namespace BlazorWebApp.Components.Pages.InClass
         private double EmploymentYears = 0.0;
         private DateTime EmploymentStart = DateTime.Today;
         private SupervisoryLevel EmploymentLevel = SupervisoryLevel.Entry;
+
+        private Employment EmploymentData;
+
+        //Dependenct Injection
+
+        //Gives us access to the Web host and lets us determine where our application is.
+        [Inject]
+        private IWebHostEnvironment WebHostEnvironment { get; set; }
+
+        //Allows us to call JS functions
+        [Inject]
+        private IJSRuntime JSRuntime { get; set; }
 
         protected override void OnInitialized()
         {
@@ -40,19 +54,78 @@ namespace BlazorWebApp.Components.Pages.InClass
 
             if (ErrorMessages.Count == 0)
             {
-                FeedbackMsg = $"Success: {EmploymentTitle}, {EmploymentYears}, {EmploymentStart}, {EmploymentLevel}";
+                //FeedbackMsg = $"Success: {EmploymentTitle}, {EmploymentYears}, {EmploymentStart}, {EmploymentLevel}";
+
+                try
+                {
+                    EmploymentData = new Employment(EmploymentTitle, EmploymentLevel, EmploymentStart, EmploymentYears);
+
+                    //To do File IO we need a path to our file.
+                    //But where is our application?
+
+                    //This gets us the Absolute path to our wwwroot folder
+                    string AppPathName = WebHostEnvironment.ContentRootPath;
+
+                    //Absolute path to our CSV file
+                    //@ allows us to treat / and similar characters as is without having to terminate them
+                    string CSVPath = $@"{AppPathName}/Data/Employment.csv";
+
+                    //Store our content
+                    string line = $"{EmploymentData.ToString()}\n";
+
+                    //Writes our line to a file
+                    System.IO.File.AppendAllText(CSVPath, line);
+                }
+                catch (ArgumentNullException ex)
+                {
+                    ErrorMessages.Add($"Missing Data", GetInnerException(ex).Message);
+                }
+                catch (ArgumentException ex)
+                {
+                    ErrorMessages.Add($"Bad Data", GetInnerException(ex).Message);
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessages.Add($"System Error", GetInnerException(ex).Message);
+                }
+
+                FeedbackMsg = "Success!";
             }
         }
 
-        private void Clear()
+        private async void Clear()
         {
             FeedbackMsg = String.Empty;
-            ErrorMessages.Clear();
 
-            EmploymentTitle = String.Empty;
-            EmploymentYears = 0.0;
-            EmploymentStart = DateTime.Today;
-            EmploymentLevel = SupervisoryLevel.Entry;
+            object[] message = new object[]
+            {
+                "Clearing will lose all unsaved data. Are you sure you wish to continue?"
+            };
+
+            if (await JSRuntime.InvokeAsync<bool>("confirm", message))
+            {
+                ErrorMessages.Clear();
+
+                EmploymentTitle = String.Empty;
+                EmploymentYears = 0.0;
+                EmploymentStart = DateTime.Today;
+                EmploymentLevel = SupervisoryLevel.Entry;
+            }
+        }
+
+        /// <summary>
+        /// Returns the deepest nested exception.
+        /// </summary>
+        /// <param name="ex">The exception to check.</param>
+        /// <returns></returns>
+        private Exception GetInnerException(Exception ex)
+        {
+            while (ex.InnerException != null)
+            {
+                ex = ex.InnerException;
+            }
+
+            return ex;
         }
     }
 }
