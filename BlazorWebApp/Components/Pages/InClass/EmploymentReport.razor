@@ -1,0 +1,63 @@
+﻿@page "/report"
+<PageTitle>Employment Report</PageTitle>
+
+@*This is optional, but is here for future interactive elements*@
+@rendermode InteractiveServer
+
+@using OOPsReview;
+
+<h2>EmploymentReport</h2>
+<p>Using a tabular report presentaiton, AKA Tables</p>
+
+@if (FeedbackMessage.Length > 0)
+{
+	<div class="alert alert-info">
+		<p>@FeedbackMessage</p>
+	</div>
+}
+
+@if (ErrorMessages.Count > 0)
+{
+	<div class="alert alert-danger">
+		<p>Fix your mistakes.</p>
+		<ul>
+			@foreach (var error in ErrorMessages)
+			{
+				<li>@error</li>
+			}
+		</ul>
+	</div>
+}
+
+<div class="row">
+	<!--overflow-scroll will add scroll bars to our table.-->
+	<div class="offset-4 col-md-4 overflow-scroll">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Position Title</th>
+					<th>Start Date</th>
+					<th>Level</th>
+					<th>Years</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var employment in Employments)
+				{
+					<tr>
+						<td>@employment.Title</td>
+						<td>@employment.StartDate.ToShortDateString()</td>
+						<td>@employment.Level</td>
+						<td>@employment.Years</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+@code {
+	string FeedbackMessage = String.Empty;
+	List<string> ErrorMessages = new List<string>();
+	List<Employment> Employments = null;
+}
