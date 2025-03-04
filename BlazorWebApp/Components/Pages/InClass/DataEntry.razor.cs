@@ -26,6 +26,10 @@ namespace BlazorWebApp.Components.Pages.InClass
         [Inject]
         private IJSRuntime JSRuntime { get; set; }
 
+        //Allows for various URI and Navigation related functions.
+        [Inject]
+        private NavigationManager NavManager {  get; set; }
+
         protected override void OnInitialized()
         {
 
@@ -110,6 +114,16 @@ namespace BlazorWebApp.Components.Pages.InClass
                 EmploymentYears = 0.0;
                 EmploymentStart = DateTime.Today;
                 EmploymentLevel = SupervisoryLevel.Entry;
+            }
+        }
+
+        private async void GoToReport()
+        {
+            string message = "Leaving the page will lose any unsaved data. Are you sure you wish to continue?";
+
+            if (await JSRuntime.InvokeAsync<bool>("confirm", message))
+            {
+                NavManager.NavigateTo("report");
             }
         }
 

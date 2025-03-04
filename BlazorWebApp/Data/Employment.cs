@@ -150,6 +150,27 @@
             TimeSpan span = DateTime.Now - StartDate;
             Years = Math.Round((span.Days / 365.25), 1); //365.25 is the number of days in a year accounting for leap years.
         }
+
+        /// <summary>
+        /// Parses our CSV file into a functional Employment.
+        /// </summary>
+        /// <param name="csvData"></param>
+        /// <returns></returns>
+        public static Employment Parse(string csvData)
+        {
+            //This splits our CSV data into a list of strings based on where the ,s are in the string.
+            List<string> data = csvData.Split(',').ToList();
+
+            string title = data[0];
+
+            SupervisoryLevel level = Enum.Parse<SupervisoryLevel>(data[1]);
+
+            DateTime startDate = DateTime.Parse(data[2]);
+
+            double years = Double.Parse(data[3]);
+
+            return new Employment(title, level, startDate, years);
+        }
         #endregion
     }
 }
