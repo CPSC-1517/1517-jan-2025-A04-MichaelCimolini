@@ -6,10 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
-    <Folder Include="Entities\" />
-  </ItemGroup>
-
 </Project>
