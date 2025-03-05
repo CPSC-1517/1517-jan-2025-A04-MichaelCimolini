@@ -17,6 +17,10 @@ internal partial class WestWindContext : DbContext
     {
     }
 
+    /// <summary>
+    /// The virtual keyword is there to tell us that, should we inherit this class, we can override these
+    /// methods/constructors/properties/etc.
+    /// </summary>
     public virtual DbSet<Address> Addresses { get; set; }
 
     public virtual DbSet<BuildVersion> BuildVersions { get; set; }
