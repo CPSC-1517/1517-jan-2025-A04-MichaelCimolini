@@ -7,7 +7,10 @@ using WestWindSystem.Entities;
 
 namespace WestWindSystem.DAL;
 
-public partial class WestWindContext : DbContext
+/// <summary>
+/// Internal prevents access to our DAL from WestWindApp. Can only be accessed inside WestWindSystem.
+/// </summary>
+internal partial class WestWindContext : DbContext
 {
     public WestWindContext(DbContextOptions<WestWindContext> options)
         : base(options)
@@ -46,6 +49,7 @@ public partial class WestWindContext : DbContext
 
     public virtual DbSet<Territory> Territories { get; set; }
 
+    //Do Not Touch
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.UseCollation("Latin1_General_CI_AS");
