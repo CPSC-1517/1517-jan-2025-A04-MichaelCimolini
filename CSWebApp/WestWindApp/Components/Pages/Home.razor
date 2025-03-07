@@ -1,7 +1,30 @@
 ﻿@page "/"
 
+@using WestWindSystem.BLL;
+@using WestWindSystem.Entities;
+
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<p>
+	WestWind Database Version Major: @BV.Major
+</p>
+
+@code{
+
+	private BuildVersion BV { get; set; }
+
+	[Inject]
+	public BuildVersionServices BVServices { get; set; }
+
+	protected override void OnInitialized()
+	{
+		BV = BVServices.GetBuildVersion();
+
+		base.OnInitialized();
+
+	}
+}
