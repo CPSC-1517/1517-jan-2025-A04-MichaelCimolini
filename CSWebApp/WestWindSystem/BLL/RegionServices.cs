@@ -12,13 +12,13 @@ namespace WestWindSystem.BLL
     /// <summary>
     /// Public so it can be accessed from WestWindApp.
     /// </summary>
-    public class BuildVersionServices
+    public class RegionServices
     {
         //readonly so it can only be set in the constructor.
         private readonly WestWindContext _context;
 
         //internal can only be accessed inside WestWindSystem
-        internal BuildVersionServices(WestWindContext context)
+        internal RegionServices(WestWindContext context)
         {
             _context = context;
         }
@@ -26,16 +26,31 @@ namespace WestWindSystem.BLL
         #region Services
 
         /// <summary>
-        /// Returns a single record from BuildVersion.
+        /// Returns all records from Region.
+        /// 
+        /// This is a dangerous service. This will cause problems
+        /// if your table has a large number of records.
         /// </summary>
-        /// <returns>First record or null.</returns>
-        public BuildVersion? GetBuildVersion() //BuildVersionGet -or- BuildVersion_Get are also common naming schemes.
+        /// <returns>All records or an empty list.</returns>
+        public List<Region> GetAllRegions() //RegionGet -or- Region_Get are also common naming schemes.
         {
             //IEnumerable is the base base base class of List
             //Used here to prevent a database query
-            IEnumerable<BuildVersion> record = _context.BuildVersions;
+            IEnumerable<Region> records = _context.Regions;
 
-            return record.FirstOrDefault();
+            return records.OrderBy(record => record.RegionDescription).ToList();
+        }
+
+        public Region GetRegionByID(int id)
+        {
+            Region region = null;
+
+            //FirstOrDefault can take a predicate
+            region = _context.Regions.FirstOrDefault(
+                x => x.RegionID == id
+                );
+
+            return region;
         }
         #endregion
     }
