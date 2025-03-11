@@ -29,7 +29,55 @@
     </div>
 }
 
+<fieldset>
+    <legend>Input Query Values</legend>
+
+    <label for="region-id">Enter a Region ID</label>
+    <input id="region-id" type="number" placeholder="Enter ID" @bind="TargetID">
+
+    <button type="submit" @onclick="GetByID">Fetch</button>
+
+    <label for="region-select">Select a Region</label>
+    <select id="region-select" @bind="SelectionID">
+		<option value="0">... select</option>
+        @foreach(var region in RegionsList)
+        {
+            <option value="@region.RegionID">@region.RegionDescription</option>
+        }
+    </select>
+    <button type="submit" @onclick="GetBySelect">Fetch</button>
+</fieldset>
+
+<p>Results of the query</p>
+@if(_Region != null)
+{
+    <p>Region ID: @_Region.RegionID</p>
+    <p>Region Description: @_Region.RegionDescription</p>
+}
+
 @code {
     private string feedBackMsg = "";
     private List<string> errorMsgs = new List<string>();
+
+    private int TargetID = 0;
+    private int SelectionID = 0;
+
+    private Region _Region = null;
+
+    private List<Region> RegionsList = new List<Region>();
+
+    private void GetByID()
+    {
+
+    }
+
+    private void GetBySelect()
+    {
+
+    }
+
+    private void ClearData()
+    {
+
+    }
 }
