@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,14 +36,34 @@ namespace WestWindSystem.BLL
         {
             //IEnumerable is the base base base class of List
             //Used here to prevent a database query
-            IEnumerable<Shipment> record = _context.Shipments
-                                                //Equivalent to select * from Shipment
-                                                //              where Year is year
-                                                //                and Month is month
-                                                .Where(shipment => shipment.ShippedDate.Year == year &&
-                                                                   shipment.ShippedDate.Month == month)
-                                                .OrderBy(shipment => shipment.ShippedDate);
 
+            //Version 1
+            //IEnumerable<Shipment> record = _context.Shipments
+            //                                    //Equivalent to select * from Shipment
+            //                                    //              where Year is year
+            //                                    //                and Month is month
+            //                                    .Where(shipment => shipment.ShippedDate.Year == year &&
+            //                                                       shipment.ShippedDate.Month == month)
+            //                                    .OrderBy(shipment => shipment.ShippedDate);
+
+            /*
+             *  If we want access to our foreign keys, we need to add them to our query.
+             *  We can do this in 2 ways:
+             *  1) Query both tables and then join them in our C# code. This is a lot of coding and
+             *  is prone to errors.
+             *  
+             *  2) We can let SQL and LINQ do it for us. To do that, we use .Include()
+             */
+
+            //V2
+            IEnumerable<Shipment> record = _context.Shipments
+                                    .Include(shipment => shipment.ShipViaNavigation)
+                                    //Equivalent to select * from Shipment
+                                    //              where Year is year
+                                    //                and Month is month
+                                    .Where(shipment => shipment.ShippedDate.Year == year &&
+                                                       shipment.ShippedDate.Month == month)
+                                    .OrderBy(shipment => shipment.ShippedDate);
             return record.ToList();
         }
         #endregion
