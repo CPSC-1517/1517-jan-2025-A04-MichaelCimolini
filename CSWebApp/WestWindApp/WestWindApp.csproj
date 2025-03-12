@@ -7,11 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="WestWindSystem.csproj" />
+    <ProjectReference Include="..\WestWindSystem\WestWindSystem.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WestWindSystem\WestWindSystem.csproj" />
+    <Content Update="Components\Layout\NavMenu.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="Components\Pages\Regions.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
   </ItemGroup>
 
 </Project>

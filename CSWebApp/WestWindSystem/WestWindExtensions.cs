@@ -1,14 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using WestWindSystem.DAL;
-using WestWindSystem.Entities;
 using WestWindSystem.BLL;
+using WestWindSystem.DAL;
 
 namespace WestWindSystem
 {
@@ -44,6 +38,20 @@ namespace WestWindSystem
                 var context = serviceProvider.GetService<WestWindContext>();
 
                 return new RegionServices(context);
+            });
+
+            services.AddTransient<ShipmentServices>((serviceProvider) =>
+            {
+                var context = serviceProvider.GetService<WestWindContext>();
+
+                return new ShipmentServices(context);
+            });
+
+            services.AddTransient<ShipperServices>((serviceProvider) =>
+            {
+                var context = serviceProvider.GetService<WestWindContext>();
+
+                return new ShipperServices(context);
             });
             #endregion
         }

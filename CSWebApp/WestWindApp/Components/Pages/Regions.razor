@@ -1,13 +1,12 @@
 ﻿@page "/regions"
-<PageTitle>Region Query</PageTitle>
+
+<PageTitle>Regions Query</PageTitle>
 @rendermode InteractiveServer
 
-<!-- additional namespaces-->
 @using WestWindSystem.BLL;
 @using WestWindSystem.Entities;
 
 <h1>Region Query</h1>
-<h4>... single record query</h4>
 
 @if (feedBackMsg.Length > 0)
 {
@@ -29,55 +28,100 @@
     </div>
 }
 
-<fieldset>
-    <legend>Input Query Values</legend>
+<!--Query Form-->
 
-    <label for="region-id">Enter a Region ID</label>
-    <input id="region-id" type="number" placeholder="Enter ID" @bind="TargetID">
+<p>Input Query Values</p>
+<fieldset>
+    <label for="regionid">Enter Region ID:</label>
+    <input id="regionid" type="number" placeholder="Enter ID" @bind="RequestedID">
 
     <button type="submit" @onclick="GetByID">Fetch</button>
 
-    <label for="region-select">Select a Region</label>
-    <select id="region-select" @bind="SelectionID">
-		<option value="0">... select</option>
-        @foreach(var region in RegionsList)
+    <label for="regionselect">Select a Region:</label>
+    <select id="regionselect" @bind="SelectedID">
+        <option value="0">...select</option>
+        @foreach(var region in RegionList)
         {
             <option value="@region.RegionID">@region.RegionDescription</option>
         }
     </select>
+
     <button type="submit" @onclick="GetBySelect">Fetch</button>
 </fieldset>
 
-<p>Results of the query</p>
-@if(_Region != null)
+<p>Results</p>
+
+@if(region != null)
 {
-    <p>Region ID: @_Region.RegionID</p>
-    <p>Region Description: @_Region.RegionDescription</p>
+    <p>Region ID: @region.RegionID</p>
+    <p>Region Description: @region.RegionDescription</p>
 }
 
 @code {
     private string feedBackMsg = "";
     private List<string> errorMsgs = new List<string>();
 
-    private int TargetID = 0;
-    private int SelectionID = 0;
+    private int RequestedID = 0;
+    private int SelectedID = 0;
 
-    private Region _Region = null;
+    private Region region = null;
 
-    private List<Region> RegionsList = new List<Region>();
+    private List<Region> RegionList = new List<Region>();
 
-    private void GetByID()
+    [Inject]
+    private RegionServices _regionServices { get; set; }
+
+    protected override void OnInitialized()
     {
+        RegionList = _regionServices.GetAllRegions();
 
+        base.OnInitialized();
     }
 
-    private void GetBySelect()
+    public void GetByID()
     {
+        ClearData();
 
+        if(RequestedID <= 0)
+        {
+            errorMsgs.Add($"Your region id value {RequestedID} is Invalid.");
+        }
+
+        if(errorMsgs.Count == 0)
+        {
+            region = _regionServices.GetRegionByID(RequestedID);
+
+            if (region == null)
+            {
+                feedBackMsg = $"No region found!";
+            }
+        }
+    }
+
+    public void GetBySelect()
+    {
+        ClearData();
+
+        if (SelectedID == 0)
+        {
+            errorMsgs.Add($"Please select a Region.");
+        }
+
+        if (errorMsgs.Count == 0)
+        {
+            region = _regionServices.GetRegionByID(SelectedID);
+
+            if (region == null)
+            {
+                feedBackMsg = $"No region found!";
+            }
+        }
     }
 
     private void ClearData()
     {
-
+        feedBackMsg = String.Empty;
+        errorMsgs.Clear();
+        region = null;
     }
 }

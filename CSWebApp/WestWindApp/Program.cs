@@ -5,11 +5,11 @@ using WestWindSystem;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//The connection string should point to a connections string in our
-//appsetting.json
-var connectionString = builder.Configuration.GetConnectionString("WWDB-Laptop");
+//This configures our application to connect to our WestWind DB
+//TODO: Change Connection String as needed
+var connectionString = builder.Configuration.GetConnectionString("WWDB-Desktop");
 
-//This passes our connection string to our services for use
+//This registers the DB with our extension methods and services
 builder.Services.WestWindExtensionServices(options => options.UseSqlServer(connectionString));
 
 // Add services to the container.
