@@ -1,0 +1,160 @@
+﻿@page "/shipmentspaging"
+<PageTitle>Shipment Table</PageTitle>
+@rendermode InteractiveServer
+
+<!-- additional namespaces-->
+@using WestWindSystem.BLL;
+@using WestWindSystem.Entities;
+
+<h1>Shipment Table</h1>
+<h4>... mulit record query</h4>
+
+@if (feedBackMsg.Length > 0)
+{
+    <div class="alert alert-info">
+        <p>@feedBackMsg</p>
+    </div>
+}
+
+@if (errorMsgs.Count > 0)
+{
+    <div class="alert alert-danger">
+        <p>Please fix the following issues:</p>
+        <ul>
+            @foreach (var error in errorMsgs)
+            {
+                <li>@error</li>
+            }
+        </ul>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <p>Input query values</p>
+        <label for="year">Enter a year:</label>
+        <input id="year" type="number" placeholder="enter year" @bind="Years">
+
+        <label for="month">Enter a month:</label>
+        <input id="month" type="number" placeholder="enter month" @bind="Months">
+
+        <button type="submit" @onclick="GetShipments">
+            Fetch Shipments
+        </button>
+    </div>
+    <div class="col-md-9">
+        @if (ShipmentList == null)
+        {
+            <p>Enter desired year and month for search</p>
+        }
+        else
+        {
+            <p>Display of query results</p>
+            if (ShipmentList.Count == 0)
+            {
+                <p>No data found for year and month arguments in search</p>
+            }
+            else
+            {
+                <div>
+                    <table class="table table-striped">
+                        <thead style="position: sticky; top: 0; background-color:white;">
+                            <tr>
+                                <th>ID</th>
+                                <th>Order</th>
+                                <th>Date</th>
+                                <th>Shipper</th>
+                                <th>Freight $</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ShipmentList)
+                            {
+                                <tr>
+                                    <td>@item.ShipmentID</td>
+                                    <td>@item.OrderID</td>
+                                    <td>@item.ShippedDate.ToShortDateString()</td>
+                                    @*<td>@item.ShipVia</td>*@
+                                    <td>@item.ShipViaNavigation.CompanyName</td>
+                                    <td align="right">@(string.Format("{0:#,##0.00}", item.FreightCharge))</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <BlazorBootstrap.Pagination
+                    ActivePageNumber="_CurrentPageNumber"
+                    TotalPages="GetTotalPages()"
+                    PageChanged="OnPageChanged">
+                    </BlazorBootstrap.Pagination>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    private string feedBackMsg = "";
+    private List<string> errorMsgs = new List<string>();
+
+    private int Years = 1950;
+    private int Months = 1;
+
+    private List<Shipment> ShipmentList = null;
+
+    private int _CurrentPageNumber = 1;
+    private int _TotalItems = 0;
+
+    private const int ITEMSPERPAGE = 10;
+
+    [Inject]
+    private ShipmentServices _ShipmentServices { get; set; }
+
+    private void GetShipments()
+    {
+        ClearData();
+
+        if(Years < 1950 || Years > DateTime.Today.Year)
+        {
+            errorMsgs.Add($"Year value {Years} is invalid. Must be between 1950 and Present");
+        }
+        if(Months < 1 || Months > 12)
+        {
+            errorMsgs.Add($"Months value {Months} is invalid. Must be between 1 and 12");
+        }
+        if(Years == DateTime.Today.Year && Months > DateTime.Today.Month)
+        {
+            errorMsgs.Add($"Months value {Months} is invalid. Must not be in the future.");
+        }
+
+        if(errorMsgs.Count == 0)
+        {
+            try
+            {
+                ShipmentList = _ShipmentServices.GetShipmentByYearAndMonth(Years, Months);
+            }
+            catch(Exception e)
+            {
+                errorMsgs.Add($"System Error: {e.Message}");
+            }
+        }
+    }
+
+    private void ClearData()
+    {
+        feedBackMsg = String.Empty;
+        errorMsgs.Clear();
+        ShipmentList = null;
+
+        _CurrentPageNumber = 1;
+    }
+
+    private int GetTotalPages()
+    {
+        return (_TotalItems + ITEMSPERPAGE - 1) / ITEMSPERPAGE;
+    }
+
+    private void OnPageChanged(int newPageNum)
+    {
+
+    }
+}
