@@ -130,7 +130,9 @@
         {
             try
             {
-                ShipmentList = _ShipmentServices.GetShipmentByYearAndMonth(Years, Months);
+                _TotalItems = _ShipmentServices.GetShipmentCountByYearAndMonth(Years, Months);
+
+                ShipmentList = _ShipmentServices.GetShipmentPageByYearAndMonth(Years, Months, _CurrentPageNumber, ITEMSPERPAGE);
             }
             catch(Exception e)
             {
