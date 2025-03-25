@@ -66,6 +66,56 @@ namespace WestWindSystem.BLL
                                     .OrderBy(shipment => shipment.ShippedDate);
             return record.ToList();
         }
+
+        /// <summary>
+        /// This returns the count of records in the search.
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <returns></returns>
+        public int GetShipmentCountByYearAndMonth(int year, int month) //ShipmentGet -or- Shipment_Get are also common naming schemes.
+        {
+
+            IEnumerable<Shipment> record = _context.Shipments
+                                    .Where(shipment => shipment.ShippedDate.Year == year &&
+                                                       shipment.ShippedDate.Month == month);
+
+            return record.Count();
+        }
+
+        public List<Shipment> GetShipmentPageByYearAndMonth(int year, int month, int currentPage, int itemsPerPage) //ShipmentGet -or- Shipment_Get are also common naming schemes.
+        {
+
+            IEnumerable<Shipment> record = _context.Shipments
+                                    .Include(shipment => shipment.ShipViaNavigation)
+                                    .Where(shipment => shipment.ShippedDate.Year == year &&
+                                                       shipment.ShippedDate.Month == month)
+                                    .OrderBy(shipment => shipment.ShippedDate);
+
+            //Pages start at index 1, subtract 1 to get the 0 index for our DB
+            int recordsToSkip = itemsPerPage * (currentPage - 1);
+
+            return record.Skip(recordsToSkip).Take(itemsPerPage).ToList();
+
+            /*
+             * This does the same thing:
+             * 
+            //Pages start at index 1, subtract 1 to get the 0 index for our DB
+            int recordsToSkip = itemsPerPage * (currentPage - 1);
+
+            IEnumerable<Shipment> record = _context.Shipments
+                        .Include(shipment => shipment.ShipViaNavigation)
+                        .Where(shipment => shipment.ShippedDate.Year == year &&
+                                           shipment.ShippedDate.Month == month)
+                        .OrderBy(shipment => shipment.ShippedDate)
+                        .Skip(recordsToSkip)
+                        .Take(itemsPerPage);
+            
+
+            return record.ToList();
+            */
+        }
+
         #endregion
     }
 }

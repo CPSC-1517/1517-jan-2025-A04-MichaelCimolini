@@ -155,6 +155,8 @@
 
     private void OnPageChanged(int newPageNum)
     {
+        _CurrentPageNumber = newPageNum;
 
+        ShipmentList = _ShipmentServices.GetShipmentPageByYearAndMonth(Years, Months, _CurrentPageNumber, ITEMSPERPAGE);
     }
 }
