@@ -164,11 +164,17 @@
     {
         Clear();
 
-        //fetch the list of products depending of the category selection
-        ProductList = _ProductServices.;
-
         //if no category was selected display a message and clear old product display
+        if (CategoryId == 0)
+        {
+            FeedbackMessage = "No Category selected!";
+        }
 
+        else
+        {
+            //fetch the list of products depending on the category selection
+            ProductList = _ProductServices.GetProductsByCategoryID(CategoryId);
+        }
     }
 
     private void GoToCRUD()
