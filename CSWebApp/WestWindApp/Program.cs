@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 //This configures our application to connect to our WestWind DB
 //TODO: Change Connection String as needed
-var connectionString = builder.Configuration.GetConnectionString("WWDB-Laptop");
+var connectionString = builder.Configuration.GetConnectionString("WWDB-Desktop");
 
 //This registers the DB with our extension methods and services
 builder.Services.WestWindExtensionServices(options => options.UseSqlServer(connectionString));
