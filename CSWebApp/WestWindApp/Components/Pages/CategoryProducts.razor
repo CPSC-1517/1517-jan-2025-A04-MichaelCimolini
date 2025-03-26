@@ -135,15 +135,10 @@
     [Inject]
     private ProductServices _ProductServices { get; set; }
 
-    //inject the SupplyService into the page
-    [Inject]
-    private SupplierServices _SupplierServices { get; set; }
-
     private int CategoryId { get; set; } = 0;
 
     private List<Category> CategoryList { get; set; } = new();
     private List<Product> ProductList { get; set; } = new();
-    private List<Supplier> SupplierList { get; set; } = new();
 
     [Inject]
     private NavigationManager NavManager { get; set; }
@@ -152,9 +147,6 @@
     {
         //retrieve the list of category via the CategoryServices in your BLL
         CategoryList = _CategoryServices.GetAllCategories();
-
-        //retrieve the list of supplier via the SupplierServices in your BLL
-        SupplierList = _SupplierServices.GetAllSuppliers();
 
         base.OnInitialized();
     }
