@@ -1,4 +1,4 @@
-﻿@page "/productcrud/{ProductID:int}"
+﻿@page "/productcrud/{ProductID:int?}"
 
 @using WestWindSystem.Entities
 @using WestWindSystem.BLL
@@ -17,7 +17,7 @@
 @code {
 
     [Parameter]
-    public int ProductID { get; set; }
+    public int? ProductID { get; set; }
 
     private string? FeedbackMessage = String.Empty;
 
