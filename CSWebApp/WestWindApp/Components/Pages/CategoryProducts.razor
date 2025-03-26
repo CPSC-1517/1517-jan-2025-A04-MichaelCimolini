@@ -43,22 +43,22 @@
         </select>
 
         <button type="submit" class="btn btn-outline-primary rounded-pill"
-                    @onclick="FetchProducts">Fetch Products</button>
+        @onclick="FetchProducts">Fetch Products</button>
         <!--
-            these two button will demonstrate ways that you can call
-            another page from an existing page
-            one button will have a NavLink to the new page
-            one button will call an event method on this page which
-                will navigate to the new page
-       
+        these two button will demonstrate ways that you can call
+        another page from an existing page
+        one button will have a NavLink to the new page
+        one button will call an event method on this page which
+        will navigate to the new page
+
 
         <button type="submit" class="btn btn-outline-secondary rounded-pill">
-            <NavLink href="productcrud">CRUD via Navlink</NavLink>
+        <NavLink href="productcrud">CRUD via Navlink</NavLink>
         </button>
 
         <button type="submit" class="btn btn-outline-secondary rounded-pill"
-                @onclick="GoToCRUD">
-            CRUD via Event
+        @onclick="GoToCRUD">
+        CRUD via Event
         </button> 
         -->
     </div>
@@ -81,7 +81,7 @@
                     @foreach(Product Item in ProductList)
                     {
                         <tr>
-                           
+
                             <td>@Item.ProductName</td>
                             <td>@Item.QuantityPerUnit</td>
                             <td> @Item.Supplier.CompanyName</td>
@@ -151,7 +151,10 @@
     protected override void OnInitialized()
     {
         //retrieve the list of category via the CategoryServices in your BLL
+        CategoryList = _CategoryServices.GetAllCategories();
+
         //retrieve the list of supplier via the SupplierServices in your BLL
+        SupplierList = _SupplierServices.GetAllSuppliers();
 
         base.OnInitialized();
     }
