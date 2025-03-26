@@ -84,7 +84,7 @@
 
                             <td>@Item.ProductName</td>
                             <td>@Item.QuantityPerUnit</td>
-                            <td> @Item.Supplier.CompanyName</td>
+                            <td>@Item.Supplier.CompanyName</td>
                             <td>@(Item.Discontinued ? "Yes" : " ")</td>
 
                             <!--
@@ -139,11 +139,11 @@
     [Inject]
     private SupplierServices _SupplierServices { get; set; }
 
-    private int CategoryId { get; set; }
+    private int CategoryId { get; set; } = 0;
 
-    private List<Category> CategoryList { get; set; }
-    private List<Product> ProductList { get; set; }
-    private List<Supplier> SupplierList { get; set; }
+    private List<Category> CategoryList { get; set; } = new();
+    private List<Product> ProductList { get; set; } = new();
+    private List<Supplier> SupplierList { get; set; } = new();
 
     [Inject]
     private NavigationManager NavManager { get; set; }
