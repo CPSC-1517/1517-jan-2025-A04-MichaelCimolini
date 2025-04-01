@@ -45,9 +45,11 @@ public partial class Product
     [StringLength(20, MinimumLength = 3, ErrorMessage = "QuantityPerUnit must be between 3 and 20 characters.")]
     public string QuantityPerUnit { get; set; }
 
+    [Range(1,int.MaxValue,ErrorMessage ="Minimum Order Quantity must be positive.")]
     public short? MinimumOrderQuantity { get; set; }
 
     [Column(TypeName = "money")]
+    [Range(0.0,double.MaxValue,ErrorMessage ="Unit Price cannot be negative.")]
     public decimal UnitPrice { get; set; }
 
     public int UnitsOnOrder { get; set; }

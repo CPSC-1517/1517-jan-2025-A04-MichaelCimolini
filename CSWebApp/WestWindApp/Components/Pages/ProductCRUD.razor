@@ -28,6 +28,8 @@
 
         <label for="name">Name</label>
         <InputText id="name" @bind-Value="CurrentProduct.ProductName"/>
+        <!--Validates and shows error inline. Must come immediately after the Input-->
+        <ValidationMessage for="@(() => CurrentProduct.ProductName)"/>
 
         <label for="supplier">Supplier ID</label>
         <InputSelect id="supplier" @bind-Value="CurrentProduct.SupplierID">
@@ -60,6 +62,7 @@
 
         <label id="unitprice">Unit Price</label>
         <InputNumber id="unitprice" @bind-Value="CurrentProduct.UnitPrice"/>
+        <ValidationMessage For="@(() => CurrentProduct.UnitPrice)" />
 
         <label id="minorder">Min Order Qty</label>
         <InputNumber id="minorder" @bind-Value="CurrentProduct.MinimumOrderQuantity" />
