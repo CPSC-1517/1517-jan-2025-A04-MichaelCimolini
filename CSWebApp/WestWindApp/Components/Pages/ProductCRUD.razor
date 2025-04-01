@@ -14,6 +14,76 @@
     </div>
 }
 
+<!--Edit Form for CRUD-->
+<EditForm>
+    <!--Enables validion in our Entities.-->
+    <DataAnnotationsValidator/>
+    <!--Catches and displays any validation errors in our Form.-->
+    <ValidationSummary/>
+
+	<fieldset>
+	    <label for="productID">Product ID</label>
+        <!--Read Only as our Database handles our Key-->
+        <InputNumber id="productID" @bind-value="CurrentProduct.ProductID" readonly/>
+
+        <label for="name">Name</label>
+        <InputText id="name" @bind-Value="CurrentProduct.ProductName"/>
+
+        <label for="supplier">Supplier ID</label>
+        <InputSelect id="supplier" @bind-Value="CurrentProduct.SupplierID">
+            <option value="0">..Select..</option>
+            @foreach(Supplier item in Suppliers)
+            {
+                <!--Selected allows us to select the SupplierID that matches the one passed in from our search page.-->
+                <option value="@item.SupplierID"
+                        selected="@(item.SupplierID == CurrentProduct.SupplierID)">
+                        @item.CompanyName
+                </option>
+            }
+        </InputSelect>
+
+        <label for="category">Category</label>
+        <InputSelect id="category" @bind-Value="CurrentProduct.CategoryID">
+            <option value="0">..Select..</option>
+            @foreach (Category item in Categories)
+            {
+                <!--Selected allows us to select the SupplierID that matches the one passed in from our search page.-->
+                <option value="@item.CategoryID"
+                        selected="@(item.CategoryID == CurrentProduct.CategoryID)">
+                    @item.CategoryName
+                </option>
+            }
+        </InputSelect>
+
+        <label for="qty">Qty / Unit</label>
+        <InputText id="qty" @bind-Value="CurrentProduct.QuantityPerUnit"/>
+
+        <label id="unitprice">Unit Price</label>
+        <InputNumber id="unitprice" @bind-Value="CurrentProduct.UnitPrice"/>
+
+        <label id="minorder">Min Order Qty</label>
+        <InputNumber id="minorder" @bind-Value="CurrentProduct.MinimumOrderQuantity" />
+
+        <label id="units">Units on Order</label>
+        <InputNumber id="units" @bind-Value="CurrentProduct.UnitsOnOrder" />
+    </fieldset>
+
+    <fieldset>
+
+		<button type="submit" @onclick("OnCreate")>Create</button>
+
+        <button type="submit" @onclick("OnUpdate")>Update</button>
+
+        <button type="submit" @onclick("OnDiscontinue")>Discontinue</button>
+        
+        <button type="submit" @onclick("Clear")>Clear</button>
+
+        <button type="submit" @onclick("GoToSearch")>Search</button>
+
+    </fieldset>
+
+</EditForm>
+
 @code {
 
     [Parameter]
