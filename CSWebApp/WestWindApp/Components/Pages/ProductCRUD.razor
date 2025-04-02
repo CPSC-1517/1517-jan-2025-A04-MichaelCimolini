@@ -144,12 +144,135 @@
 
     private void OnCreate()
     {
+        Clear();
 
+        try
+        {
+            //Validate that there are no errors in our form
+            if (_EditContext.Validate())
+            {
+                //Need to do some data validation
+                if(CurrentProduct.CategoryID == 0)
+                {
+                    //Add error message to ValidationMessageStore
+                    //.Field allows us to access any of the Inputs in our EditFrom through the @bind-value
+                    //nameof gets our Variable name, not the value
+                    _ValidationMessageStore.Add(_EditContext.Field(nameof(CurrentProduct.CategoryID)), "You must select a Category.");
+                }
+
+                if (CurrentProduct.SupplierID == 0)
+                {
+                    //Add error message to ValidationMessageStore
+                    //.Field allows us to access any of the Inputs in our EditFrom through the @bind-value
+                    //nameof gets our Variable name, not the value
+                    _ValidationMessageStore.Add(_EditContext.Field(nameof(CurrentProduct.SupplierID)), "You must select a Supplier.");
+                }
+
+                //We could add any other validation here
+
+                //Check if there were any new errors
+                //.Any is a LINQ statement that check if there is anything in the queried collection
+                if(_EditContext.GetValidationMessages().Any())
+                {
+                    //Tell our form that there are new errors and to update.
+                    _EditContext.NotifyValidationStateChanged();
+                }
+
+                //If there are no errors, assume our data is good and push it to the database.
+                else
+                {
+                    int newProductID = 1337; //Placeholder
+
+                    FeedbackMessage = $"Product {CurrentProduct.ProductName} w/ ID: {newProductID} has been saved.";
+                }
+            }
+        }
+        catch (ArgumentNullException ex)
+        {
+            //usually if an error occurs only ONE message will be executed
+            //You could setup a special error message string to display on your page
+            //that is NOT the validationMessageStore and is NOT the feedBackMessage
+            //You could style this special error message string as an alert alert-danger
+            FeedbackMessage = $"Missing Data: {GetInnerException(ex).Message}";
+        }
+        catch (ArgumentException ex)
+        {
+            FeedbackMessage = $"Data Issue: {GetInnerException(ex).Message}";
+        }
+        catch (Exception ex)
+        {
+            FeedbackMessage = $"System Error: {GetInnerException(ex).Message}";
+        }
     }
 
     private void OnUpdate()
     {
+        Clear();
 
+        try
+        {
+            //Validate that there are no errors in our form
+            if (_EditContext.Validate())
+            {
+                //Need to do some data validation
+                if (CurrentProduct.CategoryID == 0)
+                {
+                    //Add error message to ValidationMessageStore
+                    //.Field allows us to access any of the Inputs in our EditFrom through the @bind-value
+                    //nameof gets our Variable name, not the value
+                    _ValidationMessageStore.Add(_EditContext.Field(nameof(CurrentProduct.CategoryID)), "You must select a Category.");
+                }
+
+                if (CurrentProduct.SupplierID == 0)
+                {
+                    //Add error message to ValidationMessageStore
+                    //.Field allows us to access any of the Inputs in our EditFrom through the @bind-value
+                    //nameof gets our Variable name, not the value
+                    _ValidationMessageStore.Add(_EditContext.Field(nameof(CurrentProduct.SupplierID)), "You must select a Supplier.");
+                }
+
+                //We could add any other validation here
+
+                //Check if there were any new errors
+                //.Any is a LINQ statement that check if there is anything in the queried collection
+                if (_EditContext.GetValidationMessages().Any())
+                {
+                    //Tell our form that there are new errors and to update.
+                    _EditContext.NotifyValidationStateChanged();
+                }
+
+                //If there are no errors, assume our data is good and push it to the database.
+                else
+                {
+                    int affectedRows = 435; //YES placeholder
+
+                    if (affectedRows == 0)
+                    {
+                        FeedbackMessage = $"Product {CurrentProduct.ProductName} w/ ID: {CurrentProduct.ProductID} has not been updated.";
+                    }
+                    else
+                    {
+                        FeedbackMessage = $"Product {CurrentProduct.ProductName} w/ ID: {CurrentProduct.ProductID} has been updated.";
+                    }
+                }
+            }
+        }
+        catch (ArgumentNullException ex)
+        {
+            //usually if an error occurs only ONE message will be executed
+            //You could setup a special error message string to display on your page
+            //that is NOT the validationMessageStore and is NOT the feedBackMessage
+            //You could style this special error message string as an alert alert-danger
+            FeedbackMessage = $"Missing Data: {GetInnerException(ex).Message}";
+        }
+        catch (ArgumentException ex)
+        {
+            FeedbackMessage = $"Data Issue: {GetInnerException(ex).Message}";
+        }
+        catch (Exception ex)
+        {
+            FeedbackMessage = $"System Error: {GetInnerException(ex).Message}";
+        }
     }
 
     private void OnDiscontinue()
