@@ -128,6 +128,15 @@
         Categories = _CategoryServices.GetAllCategories();
         Suppliers = _SupplierServices.GetAllSuppliers();
 
+        //Use .HasValue as our ProductID int is nullable
+        if (ProductID.HasValue)
+        {
+            //Becuase ProductID is nullable, we have to use .Value
+            CurrentProduct = _ProductServices.GetProductByID(ProductID.Value);
+
+            //Could add error handling for Null;
+        }
+
         _EditContext = new(CurrentProduct);
         _ValidationMessageStore = new(_EditContext);
 

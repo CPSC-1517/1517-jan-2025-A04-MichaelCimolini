@@ -36,6 +36,15 @@ namespace WestWindSystem.BLL
             return products.ToList();
         }
 
+        public Product? GetProductByID(int ID)
+        {
+            Product? product = _context.Products
+                                            .Where(prod => prod.ProductID == ID)
+                                            .FirstOrDefault();
+
+            return product;
+        }
+
         #region CRUD Services
 
         public int AddProduct(Product product)
