@@ -5,6 +5,8 @@
 
 <PageTitle>Product CRUD</PageTitle>
 
+@rendermode InteractiveServer
+
 <h1>Product CRUD</h1>
 
 @if (FeedbackMessage != String.Empty)
@@ -73,15 +75,15 @@
 
     <fieldset>
 
-        <button type="submit" @onclick("OnCreate")>Create</button>
+        <button type="submit" @onclick="OnCreate">Create</button>
 
-        <button type="submit" @onclick("OnUpdate")>Update</button>
+        <button type="submit" @onclick="OnUpdate">Update</button>
 
-        <button type="submit" @onclick("OnDiscontinue")>Discontinue</button>
+        <button type="submit" @onclick="OnDiscontinue">Discontinue</button>
 
-        <button type="submit" @onclick("Clear")>Clear</button>
+        <button type="button" @onclick="OnClear">Clear</button>
 
-        <button type="submit" @onclick("GoToSearch")>Search</button>
+        <button type="button" @onclick="GoToSearch">Search</button>
 
     </fieldset>
 
@@ -118,6 +120,9 @@
     [Inject]
     protected NavigationManager NavManager { get; set; }
 
+    [Inject]
+    protected IJSRuntime JSRuntime { get; set; }
+
     protected override void OnInitialized()
     {
         Categories = _CategoryServices.GetAllCategories();
@@ -132,6 +137,7 @@
     private void Clear()
     {
         FeedbackMessage = String.Empty;
+        _ValidationMessageStore.Clear();
     }
 
     #region CRUD Methods
@@ -153,9 +159,28 @@
 
     #endregion
 
-    private void GoToSearch()
+    private async Task OnClear()
     {
+        if(await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to clear the form?"))
+        {
+            Clear();
 
+            CurrentProduct = new();
+
+            //Update our EditContext as they are specific to the instance of our Product
+            //Critical to do this or your form won't work
+            _EditContext = new EditContext(CurrentProduct);
+        }
+    }
+
+    private async Task GoToSearch()
+    {
+        if (await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to leave this page?"))
+        {
+            Clear();
+
+            NavManager.NavigateTo("categoryproducts");
+        }
     }
 
     private Exception GetInnerException(Exception ex)
