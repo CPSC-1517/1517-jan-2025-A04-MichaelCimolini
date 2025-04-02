@@ -181,7 +181,7 @@
                 //If there are no errors, assume our data is good and push it to the database.
                 else
                 {
-                    int newProductID = 1337; //Placeholder
+                    int newProductID = _ProductServices.AddProduct(CurrentProduct);
 
                     FeedbackMessage = $"Product {CurrentProduct.ProductName} w/ ID: {newProductID} has been saved.";
                 }
@@ -244,7 +244,7 @@
                 //If there are no errors, assume our data is good and push it to the database.
                 else
                 {
-                    int affectedRows = 435; //YES placeholder
+                    int affectedRows = _ProductServices.UpdateProduct(CurrentProduct);
 
                     if (affectedRows == 0)
                     {
