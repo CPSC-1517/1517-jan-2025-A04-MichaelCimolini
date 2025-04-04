@@ -133,6 +133,46 @@ namespace WestWindSystem.BLL
             //return the number of records updated
             return _context.SaveChanges();
         }
+        
+        /// <summary>
+        /// Logical Delete.
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public int DiscontinueProduct(Product product)
+        {
+            //Check if we have valid data
+            if (product == null)
+            {
+                throw new ArgumentNullException("Product Information Required!");
+            }
+
+            //Lets test business logic, this may be different from Create
+            Product productToDiscontinue = null;
+
+            //Check if there are any duplicates in our database based on the business rule above
+            productToDiscontinue = _context.Products
+                                    .FirstOrDefault(x => x.ProductID != product.ProductID);
+
+            //If there's a duplicate throw an error
+            if (productToDiscontinue == null)
+            {
+                throw new ArgumentException("Product doesn't exists!");
+            }
+
+            productToDiscontinue.Discontinued = true;
+
+            //This handles checking all of our fields and only modifies the ones that changed.
+            EntityEntry<Product> updating = _context.Entry(productToDiscontinue);
+
+            //Will call an Update on the DB.
+            updating.State = EntityState.Modified;
+
+            //return the number of records updated
+            return _context.SaveChanges();
+        }
 
         #endregion
 
