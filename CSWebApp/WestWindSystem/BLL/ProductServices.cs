@@ -154,7 +154,7 @@ namespace WestWindSystem.BLL
 
             //Check if there are any duplicates in our database based on the business rule above
             productToDiscontinue = _context.Products
-                                    .FirstOrDefault(x => x.ProductID != product.ProductID);
+                                    .FirstOrDefault(x => x.ProductID == product.ProductID);
 
             //If there's a duplicate throw an error
             if (productToDiscontinue == null)
@@ -171,6 +171,81 @@ namespace WestWindSystem.BLL
             updating.State = EntityState.Modified;
 
             //return the number of records updated
+            return _context.SaveChanges();
+        }
+
+        public int ActivateProduct(Product product)
+        {
+            //Check if we have valid data
+            if (product == null)
+            {
+                throw new ArgumentNullException("Product Information Required!");
+            }
+
+            //Lets test business logic, this may be different from Create
+            Product productToActivate = null;
+
+            //Check if there are any duplicates in our database based on the business rule above
+            productToActivate = _context.Products
+                                    .FirstOrDefault(x => x.ProductID == product.ProductID);
+
+            //If there's a duplicate throw an error
+            if (productToActivate == null)
+            {
+                throw new ArgumentException("Product doesn't exists!");
+            }
+
+            productToActivate.Discontinued = false;
+
+            //This handles checking all of our fields and only modifies the ones that changed.
+            EntityEntry<Product> updating = _context.Entry(productToActivate);
+
+            //Will call an Update on the DB.
+            updating.State = EntityState.Modified;
+
+            //return the number of records updated
+            return _context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Physical Delete. Data will be destroyed.
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
+        public int DeleteProduct(Product product)
+        {
+            if (product == null)
+            {
+                throw new ArgumentNullException("Product Information Required!");
+            }
+
+            //Get out early if there is an issue as delete is dangerous
+            if(!_context.Products.Any(prod => prod.ProductID == product.ProductID))
+            {
+                throw new ArgumentException("Product could not be found!");
+            }
+
+            //Check if the entry has and children.
+            if(_context.Products.Any(prod => prod.ManifestItems.Count > 0 &&
+                                             prod.ProductID == product.ProductID))
+            {
+                throw new ArgumentException("Product has Manifest Items, can not delete.");
+            }
+
+            //Check if the entry has and children.
+            if (_context.Products.Any(prod => prod.OrderDetails.Count > 0 &&
+                                             prod.ProductID == product.ProductID))
+            {
+                throw new ArgumentException("Product has Order Details, can not delete.");
+            }
+
+            //I should be clear to delete with we get here.
+
+            EntityEntry<Product> toBeDeleted = _context.Entry(product);
+
+            //Deleted state will call a Delete on our DB.
+            toBeDeleted.State = EntityState.Deleted;
+
             return _context.SaveChanges();
         }
 
